@@ -29,10 +29,6 @@ GhostOrchid Chat is designed to provide users with a clean, responsive interface
 
 ![GhostOrchid Chat](screenshots/chat.png)
 
-### Dashboard
-
-![GhostOrchid Dashboard](screenshots/dashboard.png)
-
 ## Requirements
 
 - PHP 8.2 or a compatible version
