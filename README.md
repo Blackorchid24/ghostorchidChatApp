@@ -2,123 +2,178 @@
 
 **A modern web-based chat application by Blackorchid**
 
-GhostOrchid Chat App is a web development project featuring a modern interface, user login, and Google Sign-In. Built with a focus on clean design, usability, and responsive layouts.
+GhostOrchid Chat App is a web application built with Laravel, PHP, Vite, and Google Authentication. It combines a modern interface, user authentication, and chat functionality in a responsive design.
 
 ## Screenshots
 
 ### Google Sign-In
 
 <p align="center">
-  <img src="screenshots/google-signin.png" alt="GhostOrchid Google Sign-In Screenshot" width="800">
+  <img src="screenshots/google-signin.png" alt="GhostOrchid Google Sign-In" width="800">
 </p>
 
 ### Login Page
 
 <p align="center">
-  <img src="screenshots/login.png" alt="GhostOrchid Login Page Screenshot" width="800">
+  <img src="screenshots/login.png" alt="GhostOrchid Login Page" width="800">
 </p>
 
-### Chat Room
+### Chat Application
 
 <p align="center">
-  <img src="screenshots/chat.png" alt="GhostOrchid Login Page Screenshot" width="800">
+  <img src="screenshots/chat.png" alt="GhostOrchid Chat Interface" width="800">
 </p>
 
 ## Features
 
 - Modern and responsive user interface
-- User login page
-- Google Sign-In integration
+- User login and authentication
+- Google Authentication integration
+- Chat application interface
 - Dark-themed design
 - Clean and intuitive navigation
 - Responsive layouts for desktop and mobile devices
 
-*Features may vary depending on the current implementation.*
-
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript
-- PHP
-- MySQL (if configured)
-- XAMPP for local development
+| Technology | Purpose |
+|---|---|
+| **Laravel** | PHP web application framework |
+| **PHP** | Backend development and application logic |
+| **Vite** | Frontend asset bundling and development server |
+| **Google Authentication** | Google sign-in integration |
+| **HTML5** | Web page structure |
+| **CSS3** | Styling and responsive design |
+| **JavaScript** | Frontend interactions |
+| **MySQL** | Database, if configured |
 
 ## Installation
 
 ### Requirements
 
-- [XAMPP](https://www.apachefriends.org/)
+- PHP version compatible with your Laravel version
+- Composer
+- Node.js and npm
 - Git
 - A modern web browser
+- MySQL, if required by your configuration
 
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Blackorchid24/ghostorchidChatApp.git
+cd ghostorchidChatApp
 ```
 
-### 2. Move the Project
+### 2. Install PHP Dependencies
 
-Place the project folder inside your XAMPP `htdocs` directory.
-
-Example:
-
-```text
-C:\xampp\htdocs\ghostorchid-chat
+```bash
+composer install
 ```
 
-### 3. Start XAMPP
+### 3. Configure Environment Variables
 
-Open the XAMPP Control Panel and start Apache. Start MySQL as well if your application requires a database.
+Copy the example environment file:
 
-### 4. Configure the Application
+```bash
+copy .env.example .env
+```
 
-Configure your database credentials and authentication settings if required.
+Generate the Laravel application key:
 
-For Google Sign-In, configure the appropriate Google OAuth credentials and authorized redirect URI for your local or production environment. Keep private credentials and secrets out of your public repository.
+```bash
+php artisan key:generate
+```
 
-### 5. Run the Application
+Configure your `.env` file with your database settings and Google Authentication credentials.
 
-Open your browser and visit:
+**Security:** Never commit your `.env` file, Google client secrets, or other private credentials to a public repository.
+
+### 4. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+Build the frontend assets:
+
+```bash
+npm run build
+```
+
+### 5. Configure Google Authentication
+
+Configure your Google OAuth client in the [Google Cloud Console](https://console.cloud.google.com/).
+
+Set the authorized redirect URI to match the callback route configured in your Laravel application. Add the required Google client ID and secret to your environment variables, using the variable names expected by your application.
+
+### 6. Run the Application
+
+Start the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+Open your browser at:
 
 ```text
-http://localhost/ghostorchid-chat/
+http://127.0.0.1:8000
+```
+
+For frontend development with Vite, open another terminal and run:
+
+```bash
+npm run dev
 ```
 
 ## Project Structure
 
 ```text
-ghostorchid-chat/
-├── screenshots/
-│   ├── google-signin.png
-│   └── login.png
-├── assets/
+ghostorchidChatApp/
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
 │   ├── css/
 │   ├── js/
-│   └── images/
-├── README.md
-└── ...
+│   └── views/
+├── routes/
+├── screenshots/
+│   ├── google-signin.png
+│   ├── login.png
+│   └── chat.png
+├── storage/
+├── tests/
+├── .env.example
+├── artisan
+├── composer.json
+├── package.json
+├── vite.config.js
+└── README.md
 ```
 
-*Your actual folder structure may differ.*
+*Your actual project structure may differ.*
 
 ## Development
 
 1. Open the project in Visual Studio Code.
-2. Edit the relevant HTML, CSS, JavaScript, or PHP files.
-3. Run the application using XAMPP.
-4. Test login and Google Sign-In functionality.
-5. Check responsiveness on desktop and mobile devices.
+2. Install dependencies using Composer and npm.
+3. Configure your environment variables.
+4. Run Laravel and Vite during development.
+5. Test login, Google Authentication, and chat functionality.
+6. Check the layout on desktop and mobile devices.
 
 ## Future Improvements
 
-- [ ] Improve responsive design
-- [ ] Enhance user authentication
-- [ ] Improve chat and conversation management
-- [ ] Implement real-time messaging, if not yet available
-- [ ] Add additional user interface enhancements
-- [ ] Improve accessibility and security
+- [ ] Enhance real-time messaging
+- [ ] Improve conversation management
+- [ ] Add user profile customization
+- [ ] Improve mobile responsiveness
+- [ ] Add message notifications
+- [ ] Strengthen authentication and application security
 
 ## Author
 
@@ -128,7 +183,7 @@ GitHub: [@Blackorchid24](https://github.com/Blackorchid24)
 
 ## Repository
 
-[GhostOrchid Chat App](https://github.com/Blackorchid24/ghostorchidChatApp)
+[GhostOrchid Chat App on GitHub](https://github.com/Blackorchid24/ghostorchidChatApp)
 
 ## License
 
