@@ -18,6 +18,12 @@ GhostOrchid Chat App is a web development project featuring a modern interface, 
   <img src="screenshots/login.png" alt="GhostOrchid Login Page Screenshot" width="800">
 </p>
 
+### Chat Room
+
+<p align="center">
+  <img src="screenshots/chat.png" alt="GhostOrchid Login Page Screenshot" width="800">
+</p>
+
 ## Features
 
 - Modern and responsive user interface
