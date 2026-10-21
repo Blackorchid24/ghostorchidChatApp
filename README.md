@@ -1,59 +1,218 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# GhostOrchid Chat App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern real-time messaging web application built with Laravel, PHP, MySQL, Laravel Reverb, and Google OAuth 2.0.
 
-## About Laravel
+## About the Project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+GhostOrchid Chat is a modern web-based messaging application designed to provide users with a clean, responsive, and intuitive communication experience. The project focuses on real-time messaging, secure authentication, user management, and a professional interface.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Users can register using the application's authentication system or sign in with their Google accounts through Google OAuth 2.0.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+- User registration and authentication
+- **Google Sign-In using Google OAuth 2.0**
+- Google account authentication through Laravel Socialite
+- Real-time messaging powered by Laravel Reverb
+- Private conversations between users
+- User profile and avatar display
+- Responsive chat interface
+- Client management dashboard
+- Administrative account controls
+- Modern, dark-themed user interface
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+> Some features may depend on the current application configuration and implementation.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Screenshots
 
-## Laravel Sponsors
+Screenshots help users understand the application's interface and features.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Login Page
 
-### Premium Partners
+![GhostOrchid Login](screenshots/login.png)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Google Sign-In
 
-## Contributing
+![GhostOrchid Google Sign-In](screenshots/google-signin.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Chat Interface
 
-## Code of Conduct
+![GhostOrchid Chat](screenshots/chat.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Place your actual screenshots in the `screenshots` directory using the filenames listed above.
 
-## Security Vulnerabilities
+## Requirements
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHP 8.2 or a compatible version
+- Composer
+- Node.js and npm
+- MySQL
+- XAMPP or another compatible local development environment
+- Google Cloud project with OAuth 2.0 credentials for Google Sign-In
+- Laravel Reverb configuration for real-time messaging
+
+## Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ghostorchid-chat.git
+cd ghostorchid-chat
+```
+
+### 2. Install Dependencies
+
+Install the PHP and JavaScript dependencies.
+
+```bash
+composer install
+npm install
+```
+
+### 3. Configure the Environment
+
+Create your local environment configuration file.
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+On Windows, you can copy `.env.example` to `.env` manually.
+
+Configure your MySQL database credentials in `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ghostorchid_chat
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Create the corresponding database in MySQL before running the migrations. Adjust the database name and credentials to match your local configuration.
+
+### 4. Configure Google OAuth 2.0
+
+GhostOrchid Chat supports Google Sign-In using Google OAuth 2.0.
+
+1. Visit the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create or select a Google Cloud project.
+3. Configure the OAuth consent screen.
+4. Create an OAuth 2.0 Client ID and select **Web application**.
+5. Configure the authorized redirect URI to match your Laravel callback route.
+6. Add your Google OAuth credentials to `.env`.
+
+Example environment variables:
+
+```env
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/auth/google/callback
+```
+
+Ensure the callback URL matches the URI configured in Google Cloud Console and the routes defined in your application.
+
+If Laravel Socialite is not yet installed, install it using:
+
+```bash
+composer require laravel/socialite
+```
+
+After updating your environment configuration, clear the cached configuration:
+
+```bash
+php artisan config:clear
+```
+
+**Security:** Never publish your real Google Client Secret or commit your `.env` file to GitHub. Use placeholder values in `.env.example`.
+
+### 5. Run Database Migrations
+
+```bash
+php artisan migrate
+```
+
+If your application requires seed data, run the appropriate database seeder according to your project configuration.
+
+### 6. Start the Application
+
+Open separate terminals in the project directory.
+
+**Terminal 1 — Laravel development server**
+
+```bash
+php artisan serve
+```
+
+**Terminal 2 — Vite development server**
+
+```bash
+npm run dev
+```
+
+**Terminal 3 — Laravel Reverb**
+
+```bash
+php artisan reverb:start
+```
+
+Configure the broadcasting and Reverb environment variables before starting the Reverb server.
+
+If your application uses queued broadcasting jobs, start a queue worker when required:
+
+```bash
+php artisan queue:work
+```
+
+Open the local application at `http://127.0.0.1:8000`.
+
+## Usage
+
+1. Open GhostOrchid Chat in your browser.
+2. Register an account or sign in with an existing account.
+3. Alternatively, select **Sign in with Google** if Google OAuth is configured.
+4. Open the chat interface.
+5. Select a user or conversation.
+6. Send messages and verify that new messages appear in real time.
+7. Administrators can use the administrative dashboard to manage client accounts, according to their assigned permissions.
+
+## Google OAuth 2.0
+
+Google OAuth 2.0 allows users to authenticate through their Google accounts without creating a separate application password.
+
+The integration requires:
+
+- A Google Cloud project
+- OAuth 2.0 Client ID and Client Secret
+- An authorized redirect URI
+- Laravel Socialite and the corresponding application routes
+- Secure server-side handling of OAuth credentials
+
+For local development, use the callback URL configured for your local server. A deployed application must use its actual domain and a matching HTTPS redirect URI.
+
+## Technology Stack
+
+- **Backend:** Laravel and PHP
+- **Database:** MySQL
+- **Authentication:** Laravel authentication and Google OAuth 2.0
+- **OAuth Integration:** Laravel Socialite
+- **Real-Time Communication:** Laravel Reverb
+- **Frontend:** HTML, CSS, and JavaScript
+- **Asset Bundling:** Vite
+- **Local Development:** XAMPP
+
+## Security Notes
+
+- Never commit `.env` or other files containing real credentials.
+- Keep Google OAuth Client Secrets private.
+- Configure the correct OAuth redirect URIs.
+- Use strong authentication and appropriate authorization checks.
+- Do not publish screenshots containing passwords, access tokens, private messages, or personal user information.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Specify your chosen project license here. If you have not selected a license, review the available open-source licenses before publishing one.
+
+## Author
+
+Developed as the GhostOrchid Chat project.
