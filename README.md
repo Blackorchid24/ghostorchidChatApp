@@ -9,13 +9,13 @@ GhostOrchid Chat App is a web application built with Laravel, PHP, Vite, and Goo
 ### Login Page
 
 <p align="center">
-  <img src="screenshots/login.png" alt="GhostOrchid Login Page" width="800">
+  <img src="screenshots/login.png" alt="GhostOrchid Login Page" width="500">
 </p>
 
 ### Google Sign-In
 
 <p align="center">
-  <img src="screenshots/google-signin.png" alt="GhostOrchid Google Sign-In" width="800">
+  <img src="screenshots/google-signin.png" alt="GhostOrchid Google Sign-In" width="500">
 </p>
 
 ### Chat Application
